@@ -1,5 +1,5 @@
 import os
-from emotion import EmotiRecog  
+import EmotiRecog  
 from flask import Flask,jsonify,request
 import time
 from threading import Thread
@@ -104,7 +104,7 @@ def hello():
 	return "started"
 @app.route("/training/Abc/stop")
 def stopAbc():
-	obj.stop=True
+	obj.stop5=True
 	return 'ended'
 
 @app.route("/emotirecog/start")

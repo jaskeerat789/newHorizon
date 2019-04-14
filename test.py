@@ -7,7 +7,7 @@ import time
 serial=spi(device=0,port=0)
 device=ssd1331(serial)
 def ABC(i):
-	img=Image.open(os.getcwd()+'/ALPHABETS'+i+'.png').convert("RGBA")
+	img=Image.open(os.getcwd()+'/ALPHABETS/'+i+'.png').convert("RGBA")
 	fff=Image.new(img.mode,img.size,(255,)*4)
 	background=Image.new("RGBA",device.size,"white")
 	posn=((device.width-img.width)//2,0)
