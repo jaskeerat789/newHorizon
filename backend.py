@@ -50,7 +50,7 @@ class Function:
 	def TraingAbc(self):
 		before=time.time()
 		for i in lis:
-			if (not self.stop5)
+			if (not self.stop5):
 				test.ABC(i)
 			else:
 				return
@@ -103,9 +103,9 @@ def hello():
 	print("started")
 	return "started"
 @app.route("/training/Abc/stop")
-def stop():
+def stopAbc():
 	obj.stop=True
-	return 'ended
+	return 'ended'
 
 @app.route("/emotirecog/start")
 def rec():
