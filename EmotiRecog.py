@@ -3,8 +3,8 @@ import simplejson as json
 import operator
 import os
 import test
-import time
-
+from time import sleep
+from picamera import PiCamera
 subscription_key = '4548f53a00514d2e9fb1111ea292cf5c'
 assert subscription_key
 face_api_url = 'https://centralindia.api.cognitive.microsoft.com/face/v1.0/detect'
@@ -21,9 +21,12 @@ params = {
 }
 class Emotion:
 	def capture(self):	
-		print(os.getcwd())
-		self.image_data=open('person.jpg','rb')
-		print(self.image_data)
+		camera=PiCamera()
+		camera.start_preview()
+		sleep(5)
+		camera.capture("person.jpg")
+		camera.stop_preview()
+		self.image_data=open('image.jpg','rb')
 	def send(self):
 		try:
 			response = requests.post(face_api_url, params=params, headers=headers,data=self.image_data )
@@ -36,10 +39,10 @@ class Emotion:
 			print (emotions)
 			predicted_emotion= max(emotions.items(), key=operator.itemgetter(1))[0]
 			print(predicted_emotion)
-			test.ABC(predicted_emotion)
-			time.sleep(8)
-			test.device.clear()
-			return final_dictionary
+			# test.ABC(predicted_emotion)
+			# time.sleep(8)
+			# test.device.clear()
+			return predicted_emotion
 		except:
 			pass
 

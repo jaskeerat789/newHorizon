@@ -22,12 +22,15 @@ class Function:
 		self.rurl=None
 	def Work(self):
 		i=1
-		while(i):
-			if(self.stop):
-				break
-			obj1.capture()
-			obj1.send()
-			i+=1
+		#while(i):
+		#	if(self.stop):
+		#		break
+		obj1.capture()
+		i=obj1.send()
+		test.ABC(i)
+		time.sleep(5)
+		test.device.clear()
+			#i+=1
 		return
 	def Loging(self,session,Time,hr,attention=None,Type=None,):
 		with open("data.json") as json_file:
